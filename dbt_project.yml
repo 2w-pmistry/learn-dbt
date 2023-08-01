@@ -36,7 +36,3 @@ models:
       +tags:
         - daily
         - published
-vars:
-  data_diff:
-    prod_database: BOOTCAMP_DATABASE
-    prod_schema: PROD
