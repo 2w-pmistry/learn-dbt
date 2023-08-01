@@ -1,3 +1,6 @@
 {
-    "dbt.queryLimit": 500
+    "dbt.queryLimit": 500,
+    "datafold-vscode.pythonPath": "/Users/pmistry/.pyenv/versions/3.10.5/envs/dbt/bin/python",
+    "datafold-vscode.dbtProjectDir": "/Users/pmistry/Documents/OneDriveZip/Code_Repo/learn-dbt",
+    "datafold-vscode.dbtProfilesDir": "~/.dbt"
 }
