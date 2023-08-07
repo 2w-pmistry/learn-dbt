@@ -1,5 +1,5 @@
-target/
-dbt_modules/
-logs/
-.vscode/
-dbt_packages/
+target/*
+dbt_modules/*
+logs/*
+.vscode/*
+dbt_packages/*
