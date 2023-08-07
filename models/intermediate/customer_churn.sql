@@ -6,10 +6,6 @@ orders AS (
     SELECT * FROM {{ ref('stg_orders') }}
 ),
 
-payments AS (
-    SELECT * FROM {{ ref('stg_payments') }}
-),
-
 customer_orders AS (
     SELECT
         customer_id,
