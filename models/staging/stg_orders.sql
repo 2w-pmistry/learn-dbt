@@ -1,5 +1,3 @@
-{% set results = run_query('select 1 as id') %}
-
 with source as (
 
     {#-
