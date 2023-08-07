@@ -13,12 +13,20 @@ new_orders = []
 
 # Generate order data up to today's date
 order_id = 100  # starting from the last id in your sample
+
 while last_date <= today:
-    order_id += 1
-    user_id = random.randint(1, 100)
-    last_date += timedelta(days=random.randint(1, 3))
-    status = random.choice(['completed', 'returned', 'return_pending', 'shipped', 'placed'])
-    new_orders.append([order_id, user_id, last_date.strftime('%Y-%m-%d'), status])
+    num_orders_this_month = random.randint(10, 100)
+    days_in_month = [last_date + timedelta(days=i) for i in range(num_orders_this_month) 
+                     if (last_date + timedelta(days=i)).month == last_date.month]
+    for day in days_in_month:
+        order_id += 1
+        user_id = random.randint(1, 100)
+        status = random.choice(['completed', 'returned', 'return_pending', 'shipped', 'placed'])
+        new_orders.append([order_id, user_id, day.strftime('%Y-%m-%d'), status])
+    last_date += timedelta(days=30)  # Approximate way to move to next month
+
+# Limit to 1000 records
+new_orders = new_orders[:1000]
 
 # Write the new order data to a CSV file
 with open('seeds/raw_orders_extended.csv', 'w', newline='') as csvfile:
