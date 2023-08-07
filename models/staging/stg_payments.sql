@@ -5,6 +5,8 @@ with source as (
     our data in this project
     #}
     select * from {{ ref('raw_payments') }}
+    union
+    select * from {{ ref('raw_payments_extended') }}
 
 ),
 
@@ -16,7 +18,7 @@ renamed as (
         payment_method,
 
         -- `amount` is currently stored in cents, so we convert it to dollars
-        amount / 100 as amount
+        amount / 100 as amount_dollars
 
     from source
 
