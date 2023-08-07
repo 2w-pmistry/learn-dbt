@@ -2,24 +2,32 @@ name: jaffle_shop
 config-version: 2
 version: '1.6'
 profile: jaffle_shop
+
 model-paths:
   - models
+
 seed-paths:
   - seeds
+
 test-paths:
   - tests
+
 analysis-paths:
   - analysis
+
 macro-paths:
   - macros
 target-path: target
+
 clean-targets:
   - target
   - dbt_modules
   - logs
+
 require-dbt-version:
   - '>=1.0.0'
   - <2.0.0
+
 models:
   jaffle_shop:
     +tags: contains_pii
@@ -29,6 +37,14 @@ models:
       +tags:
         - hourly
     marts:
+      facts:
+        materialized: table
+        +docs: 
+          node_color: "gold"
+      dims: 
+        materialized: table
+        +docs: 
+          node_color: "purple"
       +tags:
         - hourly
         - published
