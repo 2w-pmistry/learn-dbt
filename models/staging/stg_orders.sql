@@ -5,6 +5,8 @@ with source as (
     our data in this project
     #}
     select * from {{ ref('raw_orders') }}
+    union 
+    select * from {{ ref('raw_orders_extended')}}
 
 ),
 
